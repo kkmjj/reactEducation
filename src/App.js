@@ -2,15 +2,23 @@ import React from 'react';
 import './App.css';
 import {Person ,My} from "./Person";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>안녕하세요 react 입니다 </h1>
-      <Person></Person>
-      <My></My>
-     
-    </div>
-  );
+class App extends React.Component{
+  // 클래스만 state만 사용 컴포넌트에 사용할 자료 
+  state ={
+    person:[
+      {name: "김민준", age:25},
+      {name: "홍길동", age:32},
+
+    ]
+  }
+  render() {
+    const {person} = this.state;
+    return(
+      <div className="App">
+          <Person name={person[0].name} age={person[0].age}></Person>
+      </div>
+    );
+  }
 }
 
 
