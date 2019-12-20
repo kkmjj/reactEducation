@@ -13,9 +13,16 @@ class App extends React.Component{
   }
   render() {
     const {person} = this.state;
-    return(
+    //this.state.person[0].name="이개똥" 이렇게 값을 바꾸면 안됨
+     return(
       <div className="App">
-          <Person name={person[0].name} age={person[0].age}></Person>
+          <Person 
+          name={person[0].name} 
+          age={person[0].age}
+          myfun={()=>console.log("test")} >
+          
+           <div> 안녕하세요!!!!</div>
+          </Person>
       </div>
     );
   }
