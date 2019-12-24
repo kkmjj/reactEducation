@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Display =(props) => 
-<div>
+<div class="Header">
   <h1>{props.value}</h1>
 </div>
 
