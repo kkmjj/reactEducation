@@ -1,4 +1,6 @@
 import React,{Component} from 'react';
+import TaskDisplay from './TaskDisplay';
+import TaskAdd from './TaskAdd';
 
 
 class App extends Component {
@@ -24,29 +26,26 @@ class App extends Component {
     })
   }
  
+  ondeleteHandler =(e) =>{  // 삭제 
+    const tasks = this.state.tasks.filter((task,i) =>i!==e)
+     // 해당 인덱스가 맞지 않으면참값이 되어서 filter 한 값들을 tasks 에넣어주기 
+    this.setState({tasks})
+      
+      
+  }
 
   render(){
-    const Display = this.state.tasks.map((task,i)=>{  // 할일 화면에 보여주기 
-      
-      return(
-        <div key={i}>
-          <p>{task.todo} </p>
-          <button>취소</button>
-        </div>
-      );
-    })
+  
 
   return (
     <div className="App">
       <div>
-      <form> {/*form 으로 묶으면 focus가 같이 들어감  */}
-      <input value={this.state.task} onChange={this.onChangeHandler}></input>
-      <button onClick={this.onClickHandler}>저장</button>
-      </form>
+      <TaskAdd value={this.state.task} changeHandler={this.onChangeHandler}
+      clickHandler={this.onClickHandler}></TaskAdd>
       </div>
 
       <div>
-        {Display}
+        <TaskDisplay tasks={this.state.tasks} ondeleteHandler={this.ondeleteHandler}></TaskDisplay>
       </div>
 
 
@@ -56,5 +55,10 @@ class App extends Component {
 }
 
 }
+
+
+
+
+
 
 export default App;
