@@ -4,10 +4,10 @@ const TaskDisplay =({tasks,ondeleteHandler}) => {
  
       
     return(
-      tasks.map((task,i)=>{  // 할일 화면에 보여주기 
+      tasks.map((task)=>{  // 할일 화면에 보여주기 
         return (
-      <div key={i} class="alert alert-success">
-        {task.todo} <button onClick={()=>ondeleteHandler(i)}>취소</button>
+      <div key={task.id} className="alert alert-success">
+        {task.todo} <button className="btn-primary" onClick={()=>ondeleteHandler(task.id)}>취소</button>
       </div>
     )
   })
